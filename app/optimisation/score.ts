@@ -1,13 +1,54 @@
 // Script d'automatisation du système de score 
 
-const checkLimitAtelier = () => { };
+import { Atelier, Participant } from "./models";
 
-const checkDouble = () => { };
+interface ScoreParams {
+    listeAteliers:Atelier[];
+    listeParticipants:Participant[];
+}
 
-const gainByPreference = () => { };
+const checkLimitWorkshop = (params : ScoreParams):boolean =>  {
+    // Init
+    let countWorkshop =  {} as {[key: number]: number};
+    params.listeAteliers.forEach(atelier => {
+        countWorkshop[atelier.id] = 0;
+    });
 
-const degression = () => { };
+    // Counting
+    params.listeParticipants.forEach(participant => {
+        let atelier = getIdByTheme(params.listeAteliers, participant.ordre1);
+        countWorkshop[atelier] = countWorkshop[atelier] + 1;
+    });
 
-const allAreServe = () => { };
+    // Check if all workshops are full
+    let b = true;
+    for (let key in countWorkshop) {
+        if (countWorkshop[key] < 10) {
+            b = false;
+        }
+    }
+    return b;
+};
 
-const equity = () => { };
+const checkDouble = (params : ScoreParams) => {
+
+};
+
+const gainByPreference = (params : ScoreParams) => { };
+
+const degression = (params : ScoreParams) => { };
+
+const allAreServe = (params : ScoreParams) => { };
+
+const equity = (params : ScoreParams) => { };
+
+const getIdByTheme = (listeAteliers:Atelier[], theme:String) => { 
+    let id = -1;
+    listeAteliers.forEach(atelier => {
+        if (atelier.theme === theme) {
+            id = atelier.id;
+        }
+    });
+    return id;
+
+};
