@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default async function NavbarPartial() {
     const supabase = createClient()
-    const { data, error } = await supabase.auth.getUser()
+    const {data, error} = await supabase.auth.getUser()
 
     const email = data.user?.email;
 
@@ -24,6 +24,15 @@ export default async function NavbarPartial() {
                             <Link href={'ateliers'}>
                                 Ateliers
                             </Link>
+                            {data.user?.user_metadata.admin && (
+                                <Link href={'admin'}>
+                                    <div className="px-2 py-1 bg-black text-white rounded-lg">
+                                        Panel admin
+                                    </div>
+                                </Link>
+                            )
+                            }
+
                             <span>{email}</span>
                             <button
                                 formAction={logout}
