@@ -8,14 +8,16 @@ import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import React from "react";
 import {Select} from "@/components/ui/select";
 import {Label} from "@/components/ui/label";
-import {Textarea} from "@/components/ui/textarea";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
 import Action from "@/app/create/render";
+import {ScrollArea} from "@/components/ui/scroll-area";
+import {Separator} from "@/components/ui/separator";
 
 export default async function Page() {
 
     const supabase = createClient()
     const {data: ateliers} = await supabase.from('ateliers').select()
+    const {data: candidats} = await supabase.from('candidats').select()
 
     const {data, error} = await supabase.auth.getUser()
 
@@ -47,33 +49,37 @@ export default async function Page() {
                             <div className="space-y-4">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div className="space-y-2">
-                                        <Label htmlFor="user">Select user</Label>
+                                        <Label htmlFor="user">Selectionner un candidats</Label>
                                         <Select>
-                                            <option>John Doe</option>
-                                            <option>Anna Smith</option>
-                                            <option>Peter Parker</option>
-                                            <option>Susan Johnson</option>
-                                            <option>Mike Williams</option>
+                                            <ScrollArea className="h-72 w-48 rounded-md border">
+                                                <div className="p-4">
+                                                    {candidats?.map((tag) => (<>
+                                                        <option key={tag} className="text-sm">
+                                                            {tag.nom}
+                                                        </option>
+                                                        <Separator className="my-2"/>
+                                                    </>))}
+                                                </div>
+                                            </ScrollArea>
                                         </Select>
+
                                     </div>
                                     <div className="space-y-2">
-                                        <Label htmlFor="assignment">Assignment</Label>
+                                        <Label htmlFor="assignment">Ateliers</Label>
                                         <Select>
-                                            <option>Task 1</option>
-                                            <option>Task 2</option>
-                                            <option>Task 3</option>
-                                            <option>Task 4</option>
-                                            <option>Task 5</option>
+                                            <ScrollArea className="h-72 w-48 rounded-md border">
+                                                <div className="p-4">
+                                                    {ateliers?.map((tag) => (<>
+                                                            <option key={tag} className="text-sm">
+                                                                {tag.theme}
+                                                            </option>
+                                                            <Separator className="my-2"/>
+                                                        </>))}
+                                                </div>
+                                            </ScrollArea>
+
                                         </Select>
                                     </div>
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="comment">Comment</Label>
-                                    <Textarea
-                                        className="min-h-[100px] max-h-[200px]"
-                                        id="comment"
-                                        placeholder="Enter your comment here..."
-                                    />
                                 </div>
                             </div>
                         </CardContent>
@@ -83,14 +89,14 @@ export default async function Page() {
                     </Card>
                     <Card>
                         <CardHeader>
-                            <CardTitle>Current Assignments</CardTitle>
+                            <CardTitle>Assignments courants</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <Table>
                                 <TableHeader>
                                     <TableRow>
                                         <TableHead>Assignment</TableHead>
-                                        <TableHead>Assigned to</TableHead>
+                                        <TableHead>Assigné.e à </TableHead>
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody>
