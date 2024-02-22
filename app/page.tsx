@@ -76,33 +76,20 @@ export default function Home() {
         />
         <section className="py-20 lg:py-32">
             <div className="container mx-auto px-4">
-                <h2 className="text-center text-4xl font-extrabold text-gray-900 dark:text-white">Nos Ateliers</h2>
+                <img src="https://www.asso-ars.fr/images/elements/logo_aars.png" alt="Association AARS" className="mx-auto" />
+                <h2 className="text-center text-4xl font-extrabold text-gray-900 dark:text-white">À propos de nous</h2>
                 <p className="mt-4 text-center max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-300">
-                    Découvrez nos ateliers à thème et inscrivez-vous pour participer.
+                    La Boîte à Cuisine est fondée par l'Association Accueil & Réinsertion Sociale (AARS) pour favoriser l'insertion sociale et professionnelle des personnes en difficulté. Nous proposons des ateliers de cuisine pour apprendre à cuisiner, partager des recettes et des savoir-faire, et créer du lien social.
                 </p>
-                <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div className="overflow-hidden rounded-lg shadow-lg">
-                        <img
-                            className="w-full h-56 object-cover object-center"
-                            src="/placeholder.svg"
-                            alt="Atelier 1"
-                        />
-                        <div className="p-6">
-                            <h3 className="mb-2 text-xl font-semibold tracking-tight text-gray-800 dark:text-white">Atelier 1</h3>
-                            <p className="leading-relaxed text-gray-600 dark:text-gray-300">
-                                Description courte de l'atelier pour donner envie de participer.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </section>
 
         <section className="py-20 lg:py-32 bg-gray-50 dark:bg-gray-900">
             <div className="container mx-auto px-4">
-                <h2 className="text-center text-4xl font-extrabold text-gray-900 dark:text-white">Inscrivez-vous</h2>
+                <h2 className="text-center text-4xl font-extrabold text-gray-900 dark:text-white">Inscrivez-vous à la newsletter</h2>
                 <p className="mt-4 text-center max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-300">
-                    Remplissez le formulaire ci-dessous pour vous inscrire à nos ateliers.
+                    Recevez les dernières actualités et les prochaines dates d'ateliers directement dans votre boîte e-mail.
                 </p>
                 <div className="mt-12 max-w-lg mx-auto">
                     <form>
@@ -115,12 +102,8 @@ export default function Home() {
                                 <span className="text-gray-700 dark:text-gray-300">Adresse e-mail</span>
                                 <Input className="mt-1 block w-full" placeholder="jean.dupont@example.com" type="email"/>
                             </label>
-                            <label className="block">
-                                <span className="text-gray-700 dark:text-gray-300">Message</span>
-                                <Textarea className="mt-1 block w-full" rows={4} placeholder="Votre message"></Textarea>
-                            </label>
-                            <Button type="submit" className="w-full py-3 px-6 text-center text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm">
-                                Envoyer
+                            <Button type="submit" className="w-full py-3 px-6 text-center text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm">
+                                Souscrire
                             </Button>
                         </div>
                     </form>
