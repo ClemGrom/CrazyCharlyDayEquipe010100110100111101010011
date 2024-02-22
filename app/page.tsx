@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {Button} from "@/components/ui/button";
 import {Textarea} from "@/components/ui/textarea";
 import {Input} from "@/components/ui/input";
@@ -57,7 +56,7 @@ export default function Home() {
                             </label>
                             <label className="block">
                                 <span className="text-gray-700 dark:text-gray-300">Message</span>
-                                <Textarea className="mt-1 block w-full" rows="4" placeholder="Votre message"></Textarea>
+                                <Textarea className="mt-1 block w-full" rows={4} placeholder="Votre message"></Textarea>
                             </label>
                             <Button type="submit" className="w-full py-3 px-6 text-center text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm">
                                 Envoyer
@@ -67,6 +66,5 @@ export default function Home() {
                 </div>
             </div>
         </section>
-        <Link href="/form">Formulation des voeux</Link>
     </>);
 }
