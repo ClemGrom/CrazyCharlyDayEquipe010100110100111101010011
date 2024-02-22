@@ -5,6 +5,7 @@ import AtelierCard from './AtelierCard'
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue,} from '@/components/ui/select'
 import {Skeleton} from '@/components/ui/skeleton'
 import {Button} from "@/components/ui/button";
+import Link from "next/link";
 
 interface AtelierListProps {
     ateliers: any[]
@@ -51,6 +52,7 @@ export default function AtelierList({ateliers, isLoading, error}: AtelierListPro
 
     return (
         <div className="p-4">
+            <Link href="registration"><Button className="mb-10">S'inscrire aux ateliers</Button></Link>
             <div className="flex flex-wrap items-center gap-4 mb-6">
                 <Input
                     className="flex-grow bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md"
