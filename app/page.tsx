@@ -1,18 +1,79 @@
 import {Button} from "@/components/ui/button";
 import {Textarea} from "@/components/ui/textarea";
 import {Input} from "@/components/ui/input";
+import {ContainerScroll} from "@/components/ui/scroll";
+
+const ateliers = [
+    {
+        titre: "Atelier Cuisine du Monde",
+        description: "Découvrez les saveurs d'ailleurs en préparant des plats typiques de différents pays.",
+        image: "https://picsum.photos/id/101/300/300",
+    },
+    {
+        titre: "Atelier Pâtisserie",
+        description: "Apprenez à réaliser des desserts gourmands et raffinés.",
+        image: "https://picsum.photos/id/102/300/300",
+    },
+    {
+        titre: "Témoignage de Sarah",
+        description: "Grâce à La Boîte à Cuisine, j'ai découvert une passion pour la cuisine et j'ai rencontré des gens formidables.",
+        image: "https://picsum.photos/id/103/300/300",
+    },
+    {
+        titre: "Atelier Cuisine Végétarienne",
+        description: "Explorez l'univers de la cuisine végétarienne pour des repas sains et savoureux.",
+        image: "https://picsum.photos/id/104/300/300",
+    },
+    {
+        titre: "Atelier Cuisine Zéro Déchet",
+        description: "Apprenez à cuisiner de manière responsable en réduisant le gaspillage alimentaire.",
+        image: "https://picsum.photos/id/114/300/300",
+    },
+    {
+        titre: "Atelier Fermentation",
+        description: "Découvrez les techniques de fermentation pour préparer des aliments probiotiques maison.",
+        image: "https://picsum.photos/id/106/300/300",
+    },
+    {
+        titre: "Atelier Cuisine Saisonnière",
+        description: "Cuisinez en harmonie avec les saisons en utilisant des produits frais et locaux.",
+        image: "https://picsum.photos/id/107/300/300",
+    },
+    {
+        titre: "Atelier Cuisine pour Enfants",
+        description: "Initiez les plus jeunes à la cuisine avec des recettes simples et amusantes.",
+        image: "https://picsum.photos/id/108/300/300",
+    },
+    {
+        titre: "Atelier Repas Rapides et Sains",
+        description: "Apprenez à préparer des repas rapides, sains et équilibrés pour le quotidien.",
+        image: "https://picsum.photos/id/109/300/300",
+    },
+    {
+        titre: "Atelier Boissons et Cocktails Sans Alcool",
+        description: "Créez des boissons rafraîchissantes et originales sans une goutte d'alcool.",
+        image: "https://picsum.photos/id/110/300/300",
+    },
+];
+
+
 
 export default function Home() {
     return (<>
-        <section className="py-20 lg:py-32 bg-gray-50 dark:bg-gray-900">
-            <div className="container mx-auto flex flex-col items-center justify-center px-4 text-center">
-                <h1 className="text-6xl font-extrabold text-gray-900 dark:text-white sm:text-7xl">La Boîte à Cuisine</h1>
-                <p className="mt-4 max-w-xl text-lg text-gray-600 dark:text-gray-300">
-                    Bienvenue sur la plateforme d'inscription aux ateliers de La Boîte à Cuisine. Découvrez nos ateliers et inscrivez-vous pour apprendre à cuisiner en toute convivialité.
-                </p>
-            </div>
-        </section>
-
+        <ContainerScroll
+            ateliers={ateliers}
+            titleComponent={
+                <>
+                    <h1 className="text-4xl font-semibold text-black dark:text-white">
+                        La boîte à Pizza <br />
+                        <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+                Association Accueil
+& Réinsertion Sociale
+              </span>
+                    </h1>
+                </>
+            }
+        />
         <section className="py-20 lg:py-32">
             <div className="container mx-auto px-4">
                 <h2 className="text-center text-4xl font-extrabold text-gray-900 dark:text-white">Nos Ateliers</h2>
