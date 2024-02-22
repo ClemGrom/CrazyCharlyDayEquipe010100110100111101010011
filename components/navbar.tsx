@@ -71,12 +71,14 @@ export default async function NavbarPartial() {
                                         </DropdownMenuItem>
 
                                         <DropdownMenuItem>
-                                            <button
-                                                onClick={logout}
-                                                className="px-4 py-2 text-sm font-medium rounded-md text-red-500 hover:bg-red-50 hover:text-red-600 transition-colors duration-300"
-                                            >
-                                                Se déconnecter
-                                            </button>
+                                            <form>
+                                                <button
+                                                    formAction={logout}
+                                                    className="px-4 py-2 text-sm font-medium rounded-md text-red-500 hover:bg-red-50 hover:text-red-600 transition-colors duration-300"
+                                                >
+                                                    Se déconnecter
+                                                </button>
+                                            </form>
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>
                                 </DropdownMenu>
