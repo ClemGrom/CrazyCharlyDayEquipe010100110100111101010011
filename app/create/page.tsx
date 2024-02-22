@@ -59,35 +59,6 @@ export default function Page(): JSX.Element {
                                 <Input id="nombre" placeholder="3" type="number"/>
                             </div>
                         </div>
-                        <div className="space-y-2">
-                            <Label className="text-sm" htmlFor="message">
-                                Date prévue
-                            </Label>
-                            <div>
-                                <Popover>
-                                    <PopoverTrigger asChild>
-                                        <Button
-                                            variant={"outline"}
-                                            className={cn(
-                                                "w-[240px] justify-start text-left font-normal",
-                                                !date && "text-muted-foreground"
-                                            )}
-                                        >
-                                            <CalendarIcon className="mr-2 h-4 w-4"/>
-                                            {date ? format(date, "PPP") : <span>Choisir une date</span>}
-                                        </Button>
-                                    </PopoverTrigger>
-                                    <PopoverContent className="w-auto p-0" align="start">
-                                        <Calendar
-                                            mode="single"
-                                            selected={date}
-                                            onSelect={setDate}
-                                            initialFocus
-                                        />
-                                    </PopoverContent>
-                                </Popover>
-                            </div>
-                        </div>
                         <Button className="w-full" type="submit">
                             Créer l'atelier
                         </Button>
