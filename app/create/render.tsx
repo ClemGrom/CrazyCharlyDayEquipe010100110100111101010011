@@ -15,6 +15,7 @@ import {
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import {Loader2} from "lucide-react";
+import {toast} from "sonner";
 
 export default function Action() {
 
@@ -22,20 +23,30 @@ export default function Action() {
 
     const [loading, setLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
-    const [feedback, setFeedback] = useState("");
     const [dataForm, setDataForm] = useState({
         theme: "",
         nb: 0,
     });
 
+    function notify(title: string, desc: string) {
+        toast(title, {
+            description: desc,
+            action: {
+                label: "Fermer",
+                onClick: () => {
+
+                }
+            },
+        })
+    }
+
     const handleCreation = () => {
         setLoading(true);
         setErrorMsg("");
-        setFeedback("");
         if (dataForm.nb >= 1 && (dataForm.theme === "FR" || dataForm.theme === "IT" || dataForm.theme === "JP" || dataForm.theme === "MEX" || dataForm.theme === "GR" || dataForm.theme === "OR")) {
             supabase.from('ateliers').insert(dataForm).then(r => {
                 setLoading(false);
-                setFeedback("L'atelier a été créé avec succès (Thème : " + dataForm.theme + ", Nombre de personnes : " + dataForm.nb + ")");
+                notify("L'atelier a été créé avec succès", `${dataForm.nb} personnes pour un atelier de cuisine ${dataForm.theme} ont été ajoutées à la base de données`);
             });
         } else {
             setLoading(false);
@@ -61,12 +72,6 @@ export default function Action() {
                     {errorMsg ?
                         <div className="bg-red-500 rounded-md w-fit p-3">
                             <p className="text-white">{errorMsg}</p>
-                        </div>
-                        : null
-                    }
-                    {feedback ?
-                        <div className="bg-green-500 rounded-md w-fit p-3">
-                            <p className="text-white">{feedback}</p>
                         </div>
                         : null
                     }
