@@ -2,6 +2,8 @@ import {Button} from "@/components/ui/button";
 import {Textarea} from "@/components/ui/textarea";
 import {Input} from "@/components/ui/input";
 import {ContainerScroll} from "@/components/ui/scroll";
+import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel";
+import {Card, CardContent} from "@/components/ui/card";
 
 const ateliers = [
     {
@@ -81,6 +83,30 @@ export default function Home() {
                 <p className="mt-4 text-center max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-300">
                     La Boîte à Cuisine est fondée par l'Association Accueil & Réinsertion Sociale (AARS) pour favoriser l'insertion sociale et professionnelle des personnes en difficulté. Nous proposons des ateliers de cuisine pour apprendre à cuisiner, partager des recettes et des savoir-faire, et créer du lien social.
                 </p>
+
+            </div>
+        </section>
+
+        <section className="py-20 lg:py-32 bg-gray-50 dark:bg-gray-900">
+            <div className="container mx-auto px-4">
+                <h2 className="text-center text-4xl font-extrabold text-gray-900 dark:text-white">Actualités et événements</h2>
+                <Carousel className="w-full max-w-xs mx-auto mt-12">
+                    <CarouselContent>
+                        {Array.from({ length: 5 }).map((_, index) => (
+                            <CarouselItem key={index}>
+                                <div className="p-1">
+                                    <Card>
+                                        <CardContent className="flex aspect-square items-center justify-center p-6">
+                                            <img src={`https://picsum.photos/id/${index + 200}/300/300`} alt="" className="w-full h-full object-cover" />
+                                        </CardContent>
+                                    </Card>
+                                </div>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                </Carousel>
 
             </div>
         </section>
