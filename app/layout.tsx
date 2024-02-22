@@ -5,6 +5,7 @@ import NavbarPartial from "@/components/navbar";
 import FooterPartial from "@/components/footer";
 
 import { Inter } from 'next/font/google'
+import {Toaster} from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
     title: "CookingBook", description: "Crazy Charly Day 2024",
@@ -22,6 +23,7 @@ export default function RootLayout({
     <NavbarPartial/>
     <div className="min-h-screen">
         {children}
+        <Toaster/>
     </div>
     <FooterPartial/>
     </body>

@@ -29,7 +29,7 @@ export default function AtelierList({ateliers, isLoading, error}: AtelierListPro
         return matchesSearch && matchesTheme
     })
 
-    const uniqueThemes = ['all', ...new Set(ateliers.map((atelier) => atelier.theme))]
+    const uniqueThemes = ['all', ...Array.from(new Set(ateliers.map((atelier) => atelier.theme)))];
 
     const totalItems = filteredAteliers.length
     const totalPages = Math.ceil(totalItems / itemsPerPage)
@@ -61,7 +61,6 @@ export default function AtelierList({ateliers, isLoading, error}: AtelierListPro
                 <Select
                     value={themeFilter}
                     onValueChange={setThemeFilter}
-                    className="min-w-[200px]"
                 >
                     <SelectTrigger
                         className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md">
