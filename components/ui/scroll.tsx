@@ -110,7 +110,7 @@ export const Card = ({
                         }}
                     >
                         <div className="absolute top-2 right-2 rounded-full text-xs font-bold bg-white px-2 py-1">
-                            {user.badge}
+                            {idx + 1}
                         </div>
                         <img
                             src={user.image}
