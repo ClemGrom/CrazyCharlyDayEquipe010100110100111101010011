@@ -1,3 +1,4 @@
+import { createClient } from "../utils/supabase/server";
 import { Atelier, Participant } from "./models";
 
 interface ParticipantAlgo {
@@ -7,9 +8,9 @@ interface ParticipantAlgo {
     listeAteliers: Atelier[];
 }
 
-interface RetourAlgo {
-    points: number;
-    participants: ParticipantAlgo[];
+interface AtelierParticipant {
+    idAtelier: number;
+    idParticipant: number;
 }
 
 interface colonneRegle3 {
@@ -26,11 +27,12 @@ const tableauRegle3: colonneRegle3[] = [
     { rang: 6, points: 1 },
 ]
 
-function prepaAlgo(listeAteliers: Atelier[], listeParticipants: ParticipantAlgo[], nbDemandes: number, nbPlacesAteliers: number): RetourAlgo {
+function prepaAlgo(listeAteliers: Atelier[], listeParticipants: ParticipantAlgo[], nbDemandes: number, nbPlacesAteliers: number): number {
 
-    const retour: RetourAlgo = { points: 0, participants: [] };
+    var total : number = 0;
+    const listeAP : AtelierParticipant[] = [];
 
-    if (nbDemandes != 1 && nbPlacesAteliers != 1) {
+    while (nbDemandes != 1 && nbPlacesAteliers != 1) {
         listeParticipants.forEach((p) => {
             if (p.nbAtelier < p.participant.nbDemande) {
                 const voeux = [p.participant.ordre1, p.participant.ordre2, p.participant.ordre3, p.participant.ordre4, p.participant.ordre5, p.participant.ordre6];
@@ -39,6 +41,7 @@ function prepaAlgo(listeAteliers: Atelier[], listeParticipants: ParticipantAlgo[
                     for (let j = 0; j < listeAteliers.length; j++) {
                         const atelier = listeAteliers[j];
                         if (atelier.theme.match(voeu) && atelier.nb > 0 && atelier.listeIdParticipants.includes(p.participant.id)) {
+                            listeAP.push({idAtelier:atelier.id,idParticipant:p.participant.id});
                             atelier.listeIdParticipants.push(p.participant.id);
                             atelier.nb -= 1;
                             nbDemandes -= 1;
@@ -47,16 +50,27 @@ function prepaAlgo(listeAteliers: Atelier[], listeParticipants: ParticipantAlgo[
                             // Règle  3 +  4
                             var rang = voeux.indexOf(voeu) + p.nbAtelier;
                             if (rang > 5) rang = 5;
-                            p.score = tableauRegle3[rang].points;
+                            p.score += tableauRegle3[rang].points;
                             break; // Breaks out of the inner loop
                         }
                     }
                 }
             }
         })
-    } else {
+        listeParticipants.sort((a, b) => a.score - b.score);
+    } 
 
-    }
+    listeParticipants.forEach(p => {
+        total += p.score;
+    })
+
+    const supabase = createClient();
+
+    listeAP.forEach(async (ap) => {
+        const { error } = await supabase.from('countries').insert(ap);
+    })
+
+    return total;
 }
 
 
@@ -79,7 +93,7 @@ function algo(listeAteliers: Atelier[], listeParticipants: Participant[]): numbe
         nbPlaces += atelier.nb;
     })
 
-    return prepaAlgo(listeAteliers, listeParticipantsAlgo, demandes, nbPlaces).points;
+    return prepaAlgo(listeAteliers, listeParticipantsAlgo, demandes, nbPlaces);
 }
 
 export { algo }
