@@ -10,39 +10,25 @@ export default async function NavbarPartial() {
                     <HomeIcon className="w-5 h-5"/>
                     Home
                 </Link>
-                <nav
+                <div
                     className="hidden space-x-4 md:flex md:items-center md:justify-center lg:col-start-2 lg:justify-end xl:col-start-3 xl:justify-end">
                     <Link
                         className="flex items-center px-2.5 py-1.5 text-sm font-medium rounded-md hover:text-gray-900 dark:hover:text-gray-50"
-                        href="#"
-                    >
-                        Mission
-                    </Link>
-                    <Link
-                        className="flex items-center px-2.5 py-1.5 text-sm font-medium rounded-md hover:text-gray-900 dark:hover:text-gray-50"
-                        href="ateliers"
+                        href="/ateliers"
                     >
                         Ateliers
                     </Link>
                     <Link
-                        className="flex items-center px-2.5 py-1.5 text-sm font-medium rounded-md hover:text-gray-900 dark:hover:text-gray-50"
-                        href="#"
+                        className="flex items-center px-2.5 py-1.5 text-sm font-medium rounded-md hover:text-gray-900 border border-gray-300 dark:hover:text-gray-50 dark:border-gray-700"
+                        href="/signin"
                     >
-                        Inscription
+                        Se connecter
                     </Link>
                     <Link
-                        className="flex items-center px-2.5 py-1.5 text-sm font-medium rounded-md hover:text-gray-900 dark:hover:text-gray-50"
-                        href="#"
+                        className="flex items-center px-2.5 py-1.5 text-sm font-medium rounded-md bg-blue-500 text-white hover:bg-blue-600"
+                        href="/signup"
                     >
-                        Contact
-                    </Link>
-                </nav>
-                <div className="ml-auto space-x-4 md:hidden">
-                    <Link
-                        className="inline-flex h-8 items-center justify-center rounded-md bg-gray-900 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300 dark:active:bg-gray-50/90"
-                        href="#"
-                    >
-                        Contact
+                        S'inscrire
                     </Link>
                 </div>
             </nav>

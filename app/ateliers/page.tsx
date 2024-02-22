@@ -5,6 +5,7 @@ import {Suspense} from "react";
 
 export default async function Page() {
     const supabase = createClient()
+
     const { data: ateliers } = await supabase.from('ateliers').select()
 
     return (

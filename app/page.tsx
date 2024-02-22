@@ -1,6 +1,4 @@
-import Link from "next/link";
 import {Button} from "@/components/ui/button";
-import {Label} from "@/components/ui/label";
 import {Textarea} from "@/components/ui/textarea";
 import {Input} from "@/components/ui/input";
 
@@ -22,7 +20,6 @@ export default function Home() {
                     Découvrez nos ateliers à thème et inscrivez-vous pour participer.
                 </p>
                 <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {/* Example Card */}
                     <div className="overflow-hidden rounded-lg shadow-lg">
                         <img
                             className="w-full h-56 object-cover object-center"
@@ -36,7 +33,6 @@ export default function Home() {
                             </p>
                         </div>
                     </div>
-                    {/* Répétez pour chaque atelier */}
                 </div>
             </div>
         </section>

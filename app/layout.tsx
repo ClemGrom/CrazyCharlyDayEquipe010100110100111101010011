@@ -13,7 +13,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (<html lang="fr">
-    <body>
+    <body className="flex flex-col min-h-screen">
     <NavbarPartial/>
     {children}
     <FooterPartial/>
