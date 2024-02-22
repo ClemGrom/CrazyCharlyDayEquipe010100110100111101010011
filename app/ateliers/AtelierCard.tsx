@@ -5,7 +5,7 @@ import {Button} from "@/components/ui/button"
 import Link from "next/link";
 
 interface AtelierCardProps {
-    id: string
+    id?: string
     theme: string
     nb: number
     className?: string
