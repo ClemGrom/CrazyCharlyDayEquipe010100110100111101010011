@@ -38,7 +38,7 @@ const algo = (algoParams: algoParams) => {
             }
         });
         //Liste des participants avec ces choix
-        let listeParticipantsChoix = ;
+    
         
         listeParticipantsAlgo.forEach(participantAlgo => {
 
