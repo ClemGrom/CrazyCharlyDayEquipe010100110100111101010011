@@ -77,8 +77,8 @@ function prepaAlgo(listeAteliers: Atelier[], listeParticipants: ParticipantAlgo[
 function algo(listeAteliers: Atelier[], listeParticipants: Participant[]): number {
 
     const listeParticipantsAlgo: ParticipantAlgo[] = [];
-    var demandes: number;
-    var nbPlaces: number;
+    var demandes: number = 0;
+    var nbPlaces: number = 0;
 
     listeParticipants.forEach(participant => {
         let participantAlgo = {} as ParticipantAlgo;
