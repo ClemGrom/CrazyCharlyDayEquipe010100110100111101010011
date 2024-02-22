@@ -1,9 +1,12 @@
 import Image from "next/image";
+import {Index} from '../components/component/index';
 
 export default function Home() {
   return (
     <div>
-        <h1>CCD 2024</h1>
+       <Index/>
     </div>
   );
 }
+
+
