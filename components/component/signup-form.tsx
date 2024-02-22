@@ -5,8 +5,7 @@ import Link from "next/link";
 import {signup} from "@/app/auth/action";
 
 export function SignupForm() {
-    return (
-        <div className="flex items-center min-h-screen px-4">
+    return (<div className="flex items-center min-h-screen px-4">
             <form className="w-full max-w-sm mx-auto space-y-4">
                 <h2 className="text-2xl font-bold">Formulaire d'inscription</h2>
                 <div className="space-y-2">
@@ -38,13 +37,10 @@ export function SignupForm() {
                     <Button className="w-full" formAction={signup}>
                         S'inscrire
                     </Button>
-                    <Link href="signin">
-                        <Button className="w-full">
-                            Déjà inscrit ? Se connecter
-                        </Button>
+                    <Link href="signin" className="font-medium text-center text-gray-600 hover:text-gray-500">
+                        Déjà inscrit ? Se connecter
                     </Link>
                 </div>
             </form>
-        </div>
-    );
+        </div>);
 }

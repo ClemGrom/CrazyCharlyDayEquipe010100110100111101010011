@@ -5,10 +5,9 @@ import Link from "next/link";
 import {login} from "@/app/auth/action";
 
 export function SigninForm() {
-    return (
-        <div className="flex items-center min-h-screen px-4">
+    return (<div className="flex items-center min-h-screen px-4">
             <form className="w-full max-w-sm mx-auto space-y-4">
-                <h2 className="text-2xl font-bold">Formulaire d'inscription</h2>
+                <h2 className="text-2xl font-bold">Formulaire de connexion</h2>
                 <div className="space-y-2">
                     <div className="space-y-2">
                         <Label htmlFor="email">Adresse mail</Label>
@@ -30,13 +29,10 @@ export function SigninForm() {
                     <Button className="w-full" formAction={login}>
                         Se connecter
                     </Button>
-                    <Link href="signup">
-                        <Button className="w-full">
-                            Pas inscrit ? S'inscrire
-                        </Button>
+                    <Link href="signup" className={"font-medium text-center text-gray-600 hover:text-gray-500"}>
+                        Pas inscrit ? S'inscrire
                     </Link>
                 </div>
             </form>
-        </div>
-    );
+        </div>);
 }
