@@ -1,5 +1,5 @@
-import { createClient } from "../utils/supabase/server";
-import { Atelier, Participant } from "./models";
+import {createClient} from "../utils/supabase/server";
+import {Atelier, Participant} from "./models";
 
 interface ParticipantAlgo {
     participant: Participant;
@@ -19,18 +19,23 @@ interface colonneRegle3 {
 }
 
 const tableauRegle3: colonneRegle3[] = [
-    { rang: 1, points: 10 },
-    { rang: 2, points: 8 },
-    { rang: 3, points: 6 },
-    { rang: 4, points: 4 },
-    { rang: 5, points: 2 },
-    { rang: 6, points: 1 },
+    {rang: 1, points: 10},
+    {rang: 2, points: 8},
+    {rang: 3, points: 6},
+    {rang: 4, points: 4},
+    {rang: 5, points: 2},
+    {rang: 6, points: 1},
 ]
 
-function prepaAlgo(listeAteliers: Atelier[], listeParticipants: ParticipantAlgo[], nbDemandes: number, nbPlacesAteliers: number): number {
+export interface AlgoResponse {
+    score: number;
+    listeAffectation: AtelierParticipant[];
+}
 
-    var total : number = 0;
-    const listeAP : AtelierParticipant[] = [];
+function prepaAlgo(listeAteliers: Atelier[], listeParticipants: ParticipantAlgo[], nbDemandes: number, nbPlacesAteliers: number): AlgoResponse {
+
+    var total: number = 0;
+    const listeAP: AtelierParticipant[] = [];
 
     while (nbDemandes > 0 && nbPlacesAteliers > 0) {
         listeParticipants.forEach((p) => {
@@ -40,8 +45,8 @@ function prepaAlgo(listeAteliers: Atelier[], listeParticipants: ParticipantAlgo[
                     const voeu = voeux[i];
                     for (let j = 0; j < listeAteliers.length; j++) {
                         const atelier = listeAteliers[j];
-                        if (atelier.theme.match(voeu) && atelier.nb > 0 && !participantExists(listeAP,atelier.id,p.participant.id)) {
-                            listeAP.push({idAtelier : atelier.id, idParticipant : p.participant.id});
+                        if (atelier.theme.match(voeu) && atelier.nb > 0 && !participantExists(listeAP, atelier.id, p.participant.id)) {
+                            listeAP.push({idAtelier: atelier.id, idParticipant: p.participant.id});
                             atelier.nb -= 1;
                             nbDemandes -= 1;
                             nbPlacesAteliers -= 1;
@@ -57,7 +62,7 @@ function prepaAlgo(listeAteliers: Atelier[], listeParticipants: ParticipantAlgo[
             }
         })
         listeParticipants.sort((a, b) => a.score - b.score);
-    } 
+    }
 
     listeParticipants.forEach(p => {
         total += p.score;
@@ -67,14 +72,18 @@ function prepaAlgo(listeAteliers: Atelier[], listeParticipants: ParticipantAlgo[
 
     listeAP.forEach(async (ap) => {
         console.log(ap);
-        const { error } = await supabase.from('attributions').insert(ap);
+        const {error} = await supabase.from('attributions').insert(ap);
     })
 
-    return total;
+    return {score: total, listeAffectation: listeAP};
 }
 
 
-function algo(listeAteliers: Atelier[], listeParticipants: Participant[]): number {
+function algo(listeAteliers: Atelier[] | null, listeParticipants: Participant[] | null): AlgoResponse {
+
+    if (listeAteliers === null || listeParticipants === null) {
+        return {score: 0, listeAffectation: []};
+    }
 
     const listeParticipantsAlgo: ParticipantAlgo[] = [];
     var demandes: number = 0;
@@ -96,10 +105,10 @@ function algo(listeAteliers: Atelier[], listeParticipants: Participant[]): numbe
     return prepaAlgo(listeAteliers, listeParticipantsAlgo, demandes, nbPlaces);
 }
 
-function participantExists(atelierParticipants : AtelierParticipant[], idAtelier: number, idParticipant: number): boolean {
-    return atelierParticipants.some(participant =>  
+function participantExists(atelierParticipants: AtelierParticipant[], idAtelier: number, idParticipant: number): boolean {
+    return atelierParticipants.some(participant =>
         participant.idAtelier === idAtelier && participant.idParticipant === idParticipant
     );
 }
 
-export { algo }
+export {algo}

@@ -41,87 +41,12 @@ export default async function Page() {
             <TabsContent value="account">
                 <div className="space-y-4">
                     <Card>
-                        <CardHeader>
-                            <CardTitle>Assigner un participant</CardTitle>
-                            <CardDescription>Assigner un participant à un atelier</CardDescription>
-                        </CardHeader>
                         <CardContent>
-                            <div className="space-y-4">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <Label htmlFor="user">Selectionner un candidats</Label>
-                                        <Select>
-                                            <ScrollArea className="h-72 w-48 rounded-md border">
-                                                <div className="p-4">
-                                                    {candidats?.map((tag) => (<>
-                                                        <option key={tag} className="text-sm">
-                                                            {tag.nom}
-                                                        </option>
-                                                        <Separator className="my-2"/>
-                                                    </>))}
-                                                </div>
-                                            </ScrollArea>
-                                        </Select>
-
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="assignment">Ateliers</Label>
-                                        <Select>
-                                            <ScrollArea className="h-72 w-48 rounded-md border">
-                                                <div className="p-4">
-                                                    {ateliers?.map((tag) => (<>
-                                                            <option key={tag} className="text-sm">
-                                                                {tag.theme}
-                                                            </option>
-                                                            <Separator className="my-2"/>
-                                                        </>))}
-                                                </div>
-                                            </ScrollArea>
-
-                                        </Select>
-                                    </div>
-                                </div>
+                            <div className="flex flex-col items-center mt-10">
+                                <Link href={"attribuer"}>
+                                    <Button>Attribuer les affectations</Button>
+                                </Link>
                             </div>
-                        </CardContent>
-                        <CardFooter>
-                            <Button>Assign</Button>
-                        </CardFooter>
-                    </Card>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Assignments courants</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <Table>
-                                <TableHeader>
-                                    <TableRow>
-                                        <TableHead>Assignment</TableHead>
-                                        <TableHead>Assigné.e à </TableHead>
-                                    </TableRow>
-                                </TableHeader>
-                                <TableBody>
-                                    <TableRow>
-                                        <TableCell>Task 1</TableCell>
-                                        <TableCell>John Doe</TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>Task 2</TableCell>
-                                        <TableCell>Anna Smith</TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>Task 3</TableCell>
-                                        <TableCell>Peter Parker</TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>Task 4</TableCell>
-                                        <TableCell>Susan Johnson</TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>Task 5</TableCell>
-                                        <TableCell>Mike Williams</TableCell>
-                                    </TableRow>
-                                </TableBody>
-                            </Table>
                         </CardContent>
                     </Card>
                 </div>

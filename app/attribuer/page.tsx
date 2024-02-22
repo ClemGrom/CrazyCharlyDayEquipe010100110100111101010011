@@ -1,20 +1,19 @@
-'use client';
+import {createClient} from "@/app/utils/supabase/server";
+import {redirect} from "next/navigation";
+import Render from "@/app/attribuer/render";
 
-import { Button } from "@/components/ui/button";
+export default async function Page() {
 
-export default function Page(){
+    const supabase = createClient();
 
-    const handleClick = ():void => {
-        fetch("api").then( (rep) => {
-            console.log(rep);
-        })
+    const {data, error} = await supabase.auth.getUser();
+
+    if (!data.user) {
+        redirect('/signin')
     }
 
-    return (
+    return <Render/>
 
-        <div>
-            <Button onClick={handleClick} >Attribuer les affectations</Button>
-        </div>
 
-    );
 }
+
