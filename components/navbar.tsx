@@ -65,6 +65,11 @@ export default async function NavbarPartial() {
                                         <DropdownMenuItem>
                                             <Link href="/profile">Profile</Link>
                                         </DropdownMenuItem>
+
+                                        <DropdownMenuItem>
+                                            <Link href="/admin">Backoffice</Link>
+                                        </DropdownMenuItem>
+
                                         <DropdownMenuItem>
                                             <button
                                                 onClick={logout}
