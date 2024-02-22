@@ -96,8 +96,11 @@ export default function Home() {
                             <CarouselItem key={index}>
                                 <div className="p-1">
                                     <Card>
-                                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                                            <img src={`https://picsum.photos/id/${index + 200}/300/300`} alt="" className="w-full h-full object-cover" />
+                                        <CardContent className="flex flex-col aspect-square items-center justify-center p-6">
+                                            <img src={`https://picsum.photos/id/${index + 200}/500/500`} alt="" className="w-full h-full object-cover" />
+                                            <p className="relative mt-4 text-center text-gray-600 dark:text-gray-300">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                            </p>
                                         </CardContent>
                                     </Card>
                                 </div>
