@@ -7,7 +7,5 @@ import { useRouter } from "next/router";
 export default function FormPage() {
   const router = useRouter();
 
-  const submitForm = () => {};
-
-  return <SignupForm onClick={submitForm}></SignupForm>;
+  return <SignupForm />;
 }
