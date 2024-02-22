@@ -3,56 +3,9 @@ import {Button} from "@/components/ui/button";
 import {Label} from "@/components/ui/label";
 import {Textarea} from "@/components/ui/textarea";
 import {Input} from "@/components/ui/input";
-import {HomeIcon} from "lucide-react";
 
 export default function Home() {
     return (<>
-        <div className="bg-white border-b border-gray-100 dark:bg-gray-950">
-            <div className="container px-4 py-6 md:py-8">
-                <div
-                    className="grid items-center gap-4 md:gap-6 lg:gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    <Link className="flex items-center gap-2 text-xl font-medium" href="#">
-                        <HomeIcon className="w-5 h-5"/>
-                        Home
-                    </Link>
-                    <nav
-                        className="hidden space-x-4 md:flex md:items-center md:justify-center lg:col-start-2 lg:justify-end xl:col-start-3 xl:justify-end">
-                        <Link
-                            className="flex items-center px-2.5 py-1.5 text-sm font-medium rounded-md hover:text-gray-900 dark:hover:text-gray-50"
-                            href="#"
-                        >
-                            Mission
-                        </Link>
-                        <Link
-                            className="flex items-center px-2.5 py-1.5 text-sm font-medium rounded-md hover:text-gray-900 dark:hover:text-gray-50"
-                            href="#"
-                        >
-                            Ateliers
-                        </Link>
-                        <Link
-                            className="flex items-center px-2.5 py-1.5 text-sm font-medium rounded-md hover:text-gray-900 dark:hover:text-gray-50"
-                            href="#"
-                        >
-                            Inscription
-                        </Link>
-                        <Link
-                            className="flex items-center px-2.5 py-1.5 text-sm font-medium rounded-md hover:text-gray-900 dark:hover:text-gray-50"
-                            href="#"
-                        >
-                            Contact
-                        </Link>
-                    </nav>
-                    <div className="ml-auto space-x-4 md:hidden">
-                        <Link
-                            className="inline-flex h-8 items-center justify-center rounded-md bg-gray-900 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300 dark:active:bg-gray-50/90"
-                            href="#"
-                        >
-                            Contact
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </div>
         <section className="py-12 lg:py-24 bg-gray-100 dark:bg-gray-800">
             <div
                 className="container flex flex-col items-center justify-center space-y-4 text-center md:space-y-10">
@@ -142,31 +95,5 @@ export default function Home() {
                 </div>
             </div>
         </section>
-        <footer className="bg-gray-900 py-12 text-gray-50 dark:bg-gray-50 dark:text-gray-900">
-            <div className="container grid items-center gap-4 px-4 text-center md:px-6 lg:gap-10">
-                <div className="space-y-2">
-                    <p className="text-sm/relaxed">© 2023 La Boîte à Cuisine - Tous droits réservés</p>
-                </div>
-                <div
-                    className="flex flex-col gap-2 min-[400px]:flex-row justify-center"
-                    style={{
-                        color: "black",
-                    }}
-                >
-                    <Link
-                        className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                        href="#"
-                    >
-                        Mentions légales
-                    </Link>
-                    <Link
-                        className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                        href="#"
-                    >
-                        Politique de confidentialité
-                    </Link>
-                </div>
-            </div>
-        </footer>
     </>)
 }
