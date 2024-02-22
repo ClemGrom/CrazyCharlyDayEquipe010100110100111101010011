@@ -1,18 +1,19 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { HomeIcon, MoreHorizontalIcon } from "lucide-react"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card"
+import {HomeIcon, MoreHorizontalIcon} from "lucide-react"
+import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu"
+import {Button} from "@/components/ui/button"
 
 interface AtelierCardProps {
     theme: string
     nb: number
+    className?: string
 }
 
-export default function AtelierCard({ theme, nb }: AtelierCardProps) {
+export default function AtelierCard({theme, nb, className}: AtelierCardProps) {
     return (
-        <Card className="shadow-lg">
+        <Card className={`shadow-md hover:shadow-lg transition-shadow duration-300 ${className}`}>
             <CardHeader className="flex flex-row items-center gap-4 p-4">
-                <HomeIcon className="w-8 h-8 text-gray-500" />
+                <HomeIcon className="w-8 h-8 text-gray-500"/>
                 <div className="grid gap-1">
                     <CardTitle>{theme}</CardTitle>
                     <CardDescription className="text-gray-500">{nb} participants inscrits</CardDescription>
@@ -20,7 +21,7 @@ export default function AtelierCard({ theme, nb }: AtelierCardProps) {
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Button className="ml-auto" size="icon" variant="ghost">
-                            <MoreHorizontalIcon className="w-4 h-4 text-gray-500" />
+                            <MoreHorizontalIcon className="w-4 h-4 text-gray-500"/>
                             <span className="sr-only">Toggle menu</span>
                         </Button>
                     </DropdownMenuTrigger>
