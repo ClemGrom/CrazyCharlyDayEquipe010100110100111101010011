@@ -13,7 +13,7 @@ export default async function NavbarPartial() {
                 <div
                     className="hidden space-x-4 md:flex md:items-center md:justify-center lg:col-start-2 lg:justify-end xl:col-start-3 xl:justify-end">
                     <Link
-                        className="flex items-center px-2.5 py-1.5 text-sm font-medium rounded-md hover:text-gray-900 dark:hover:text-gray-50"
+                        className="flex items-center px-2.5 py-1.5 text-sm font-medium rounded-md hover:text-gray-900 dark:hover:text-gray-50 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300 ease-in-out"
                         href="/ateliers"
                     >
                         Ateliers
