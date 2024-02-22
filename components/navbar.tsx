@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {HomeIcon} from "lucide-react";
 import {createClient} from "@/app/utils/supabase/server";
-import {logout} from "@/app/signin/action";
+import {logout} from "@/app/auth/action";
 
 export default async function NavbarPartial() {
     const supabase = createClient()
@@ -42,7 +42,7 @@ export default async function NavbarPartial() {
                             </a>
                             <a
                                 className="flex items-center px-2.5 py-1.5 text-sm font-medium rounded-md bg-blue-500 text-white hover:bg-blue-600"
-
+                                href="/signup"
                             >
                                 S'inscrire
                             </a>

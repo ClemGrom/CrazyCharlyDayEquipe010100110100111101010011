@@ -1,7 +1,7 @@
-import { Form } from "@/components/component/form";
+import {SigninForm} from "@/components/component/signin-form";
 
 export default function Page() {
     return (
-       <Form/>
+       <SigninForm/>
     );
 }
