@@ -67,9 +67,9 @@ export default function Home() {
                     <h1 className="text-xl font-semibold text-gray-600">
                         Association Accueil
                         & Réinsertion Sociale <br />
-                        <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none text-black">
+                        <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none text-white">
                 La Boîte à Cuisine
-              </span>
+                        </span>
                     </h1>
                 </>
             }

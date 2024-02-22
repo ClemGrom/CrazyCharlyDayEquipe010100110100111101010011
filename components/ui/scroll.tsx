@@ -43,12 +43,14 @@ export const ContainerScroll = ({
             ref={containerRef}
         >
             <div
-                className="py-40 w-full relative"
+                className="py-40 w-full relative bg-gradient-to-r from-[#5AAD31] to-[#A2DC60] rounded-3xl"
                 style={{
                     perspective: "1000px",
                 }}
             >
-                <Header translate={translate} titleComponent={titleComponent} />
+                <Header
+                    translate={translate}
+                    titleComponent={titleComponent} />
                 <Card
                     rotate={rotate}
                     translate={translate}
