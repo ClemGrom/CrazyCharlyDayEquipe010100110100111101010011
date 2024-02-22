@@ -10,6 +10,7 @@ interface ParticipantAlgo {
     participant: Participant;
     score: number;
     nbAtelier: number;
+    listeAteliers: Atelier[];
 }
 
 
@@ -22,6 +23,7 @@ const algo = (algoParams: algoParams) => {
         participantAlgo.participant = participant;
         participantAlgo.score = 0;
         participantAlgo.nbAtelier = 0;
+        participantAlgo.listeAteliers = [];
         listeParticipantsAlgo.push(participantAlgo);
     });
 
@@ -36,7 +38,7 @@ const algo = (algoParams: algoParams) => {
             }
         });
         //Liste des participants avec ces choix
-        let listeParticipantsChoix = [] as Participant[];
+        let listeParticipantsChoix = ;
         
         listeParticipantsAlgo.forEach(participantAlgo => {
 
