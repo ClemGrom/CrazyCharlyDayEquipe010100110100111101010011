@@ -1,5 +1,6 @@
 import type {Metadata} from "next";
 import "./globals.css";
+
 import NavbarPartial from "@/components/navbar";
 import FooterPartial from "@/components/footer";
 

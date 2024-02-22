@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {Button} from "@/components/ui/button";
 import {Textarea} from "@/components/ui/textarea";
 import {Input} from "@/components/ui/input";
@@ -66,5 +67,6 @@ export default function Home() {
                 </div>
             </div>
         </section>
+        <Link href="/form">Formulation des voeux</Link>
     </>);
 }
