@@ -4,11 +4,14 @@ import {Input} from "@/components/ui/input";
 
 export default function Home() {
     return (<>
-        <section className="py-20 lg:py-32 bg-gray-50 dark:bg-gray-900">
-            <div className="container mx-auto flex flex-col items-center justify-center px-4 text-center">
-                <h1 className="text-6xl font-extrabold text-gray-900 dark:text-white sm:text-7xl">La Boîte à Cuisine</h1>
-                <p className="mt-4 max-w-xl text-lg text-gray-600 dark:text-gray-300">
-                    Bienvenue sur la plateforme d'inscription aux ateliers de La Boîte à Cuisine. Découvrez nos ateliers et inscrivez-vous pour apprendre à cuisiner en toute convivialité.
+        <section className="py-20 lg:py-32">
+            <div className="h-[30rem] w-full bg-dot-black/[0.2] relative flex items-center justify-center text-center">
+                <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"></div>
+                <p className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
+                    <h1 className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-gray-300 to-black py-8">La Boîte à Cuisine</h1>
+                    <p className="mt-4 max-w-xl text-lg text-gray-500 mx-auto">
+                        Découvrez nos ateliers et inscrivez-vous pour apprendre à cuisiner en toute convivialité.
+                    </p>
                 </p>
             </div>
         </section>
