@@ -1,0 +1,1 @@
+# CrazyCharlyDayEquipe010100110100111101010011
