@@ -11,11 +11,11 @@ export function Form() {
         <div className="space-y-2">
           <div className="space-y-2">
             <Label htmlFor="first-name">Prénom</Label>
-            <Input id="first-name" placeholder="Entrez votre prénom" required />
+            <Input id="first-name" name="first-name" placeholder="Entrez votre prénom" required />
           </div>
           <div className="space-y-2">
             <Label htmlFor="last-name">Nom</Label>
-            <Input id="last-name" placeholder="Entrez votre nom" required />
+            <Input id="last-name" name="last-name" placeholder="Entrez votre nom" required />
           </div>
           <div className="space-y-2">
             <Label htmlFor="email">Adresse mail</Label>
@@ -29,7 +29,7 @@ export function Form() {
           </div>
           <div className="space-y-2">
             <Label htmlFor="password">Mot de passe</Label>
-            <Input id="password" placeholder="Entrez votre mot de passe" required type="password" />
+            <Input id="password" name="password" placeholder="Entrez votre mot de passe" required type="password" />
           </div>
         </div>
         <Button className="w-full" formAction={login}>

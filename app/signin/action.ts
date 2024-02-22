@@ -1,7 +1,7 @@
 'use server'
 
-import { revalidatePath } from 'next/cache'
-import { redirect } from 'next/navigation'
+import {revalidatePath} from 'next/cache'
+import {redirect} from 'next/navigation'
 import {createClient} from "@/app/utils/supabase/server";
 
 export async function login(formData: FormData) {
@@ -12,7 +12,7 @@ export async function login(formData: FormData) {
         password: formData.get('password') as string,
     }
 
-    const { error } = await supabase.auth.signInWithPassword(data)
+    const {error} = await supabase.auth.signInWithPassword(data)
 
     if (error) {
         redirect('/error')
@@ -25,12 +25,23 @@ export async function login(formData: FormData) {
 export async function signup(formData: FormData) {
     const supabase = createClient()
 
+    const firstName = formData.get('first-name') as string;
+    const lastName = formData.get('last-name') as string;
+    const displayName = `${firstName} ${lastName}`
+
     const data = {
         email: formData.get('email') as string,
         password: formData.get('password') as string,
+        options: {
+            data: {
+                display_name: displayName,
+            }
+        }
     }
 
-    const { error } = await supabase.auth.signUp(data)
+    console.log(formData)
+
+    const {error} = await supabase.auth.signUp(data)
 
     if (error) {
         redirect('/error')
