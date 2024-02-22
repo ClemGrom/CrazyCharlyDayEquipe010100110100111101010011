@@ -1,33 +1,29 @@
-import type { Metadata } from "next";
+import type {Metadata} from "next";
 import "./globals.css";
-import { Inter as FontSans } from "next/font/google";
-import { cn } from "@/lib/utils";
 
-export const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+import NavbarPartial from "@/components/navbar";
+import FooterPartial from "@/components/footer";
+
+import { Inter } from 'next/font/google'
 
 export const metadata: Metadata = {
-  title: "CookingBook",
-  description: "Crazy Charly Day 2024",
+    title: "CookingBook", description: "Crazy Charly Day 2024",
 };
 
+const inter = Inter({ subsets: ['latin'] })
+
 export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
+                                       children,
+                                   }: Readonly<{
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="fr">
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
-      >
+    return (<html lang="fr" className={inter.className}>
+    <body>
+    <NavbarPartial/>
+    <div className="min-h-screen">
         {children}
-      </body>
-    </html>
-  );
+    </div>
+    <FooterPartial/>
+    </body>
+    </html>);
 }
