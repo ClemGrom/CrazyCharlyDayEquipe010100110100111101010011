@@ -16,7 +16,7 @@ export default async function NavbarPartial() {
     const email = data.user?.email
 
     return (
-        <div className="bg-white border-b border-gray-200 dark:bg-gray-900 shadow-sm">
+        <div className="bg-white dark:bg-gray-900">
             <div className="container mx-auto px-4 py-4">
                 <nav className="flex justify-between items-center">
                     <a className="flex items-center gap-2 text-xl font-semibold" href="/">
