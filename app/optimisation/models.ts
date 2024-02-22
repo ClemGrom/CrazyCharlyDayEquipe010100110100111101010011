@@ -1,7 +1,9 @@
 export interface Atelier {
     id: number;
     theme: string;
-    nb: number
+    nb: number;
+    date : Date;
+    listeIdParticipants: number[];
 }
 
 export interface Participant {
