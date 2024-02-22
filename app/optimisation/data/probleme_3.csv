@@ -1,0 +1,11 @@
+ateliers;
+id;theme;nb;
+1;JP;2;
+2;OR;4;
+3;GR;4;
+
+candidats;
+id;nom;nbDemande;ordre1;ordre2;ordre3;ordre4;ordre5;ordre6;
+1;Albert;2;JP;OR;MEX;IT;GR;FR;
+2;Bertrand;2;FR;JP;MEX;IT;GR;OR;
+3;Celine;2;JP;GR;OR;FR;IT;MEX;
