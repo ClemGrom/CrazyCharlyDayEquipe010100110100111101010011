@@ -1,5 +1,4 @@
 import {Button} from "@/components/ui/button";
-import {Textarea} from "@/components/ui/textarea";
 import {Input} from "@/components/ui/input";
 import {ContainerScroll} from "@/components/ui/scroll";
 import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel";
@@ -59,7 +58,6 @@ const ateliers = [
 ];
 
 
-
 export default function Home() {
     return (<>
         <ContainerScroll
@@ -68,7 +66,7 @@ export default function Home() {
                 <>
                     <h1 className="text-xl font-semibold text-gray-600">
                         Association Accueil
-                        & Réinsertion Sociale <br />
+                        & Réinsertion Sociale <br/>
                         <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none text-white">
                 La Boîte à Cuisine
                         </span>
@@ -78,10 +76,14 @@ export default function Home() {
         />
         <section className="py-20 lg:py-32">
             <div className="container mx-auto px-4">
-                <img src="https://www.asso-ars.fr/images/elements/logo_aars.png" alt="Association AARS" className="mx-auto" />
+                <img src="https://www.asso-ars.fr/images/elements/logo_aars.png" alt="Association AARS"
+                     className="mx-auto"/>
                 <h2 className="text-center text-4xl font-extrabold text-gray-900 dark:text-white">À propos de nous</h2>
                 <p className="mt-4 text-center max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-300">
-                    La Boîte à Cuisine est fondée par l'Association Accueil & Réinsertion Sociale (AARS) pour favoriser l'insertion sociale et professionnelle des personnes en difficulté. Nous proposons des ateliers de cuisine pour apprendre à cuisiner, partager des recettes et des savoir-faire, et créer du lien social.
+                    La Boîte à Cuisine est fondée par l'Association Accueil & Réinsertion Sociale (AARS) pour favoriser
+                    l'insertion sociale et professionnelle des personnes en difficulté. Nous proposons des ateliers de
+                    cuisine pour apprendre à cuisiner, partager des recettes et des savoir-faire, et créer du lien
+                    social.
                 </p>
 
             </div>
@@ -89,17 +91,21 @@ export default function Home() {
 
         <section className="py-20 lg:py-32 bg-gray-50 dark:bg-gray-900">
             <div className="container mx-auto px-4">
-                <h2 className="text-center text-4xl font-extrabold text-gray-900 dark:text-white">Actualités et événements</h2>
-                <Carousel className="w-full max-w-xs mx-auto mt-12">
+                <h2 className="text-center text-4xl font-extrabold text-gray-900 dark:text-white">Actualités et
+                    événements</h2>
+                <Carousel className="w-full mx-auto mt-12 lg:w-3/4">
                     <CarouselContent>
-                        {Array.from({ length: 5 }).map((_, index) => (
+                        {Array.from({length: 5}).map((_, index) => (
                             <CarouselItem key={index}>
                                 <div className="p-1">
                                     <Card>
-                                        <CardContent className="flex flex-col aspect-square items-center justify-center p-6">
-                                            <img src={`https://picsum.photos/id/${index + 200}/500/500`} alt="" className="w-full h-full object-cover" />
+                                        <CardContent
+                                            className="flex flex-col aspect-square items-center justify-center p-6">
+                                            <img src={`https://picsum.photos/id/${index + 200}/1000/1000`} alt=""
+                                                 className="w-full h-full object-cover"/>
                                             <p className="relative mt-4 text-center text-gray-600 dark:text-gray-300">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua.
                                             </p>
                                         </CardContent>
                                     </Card>
@@ -107,8 +113,8 @@ export default function Home() {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <CarouselPrevious />
-                    <CarouselNext />
+                    <CarouselPrevious/>
+                    <CarouselNext/>
                 </Carousel>
 
             </div>
@@ -116,9 +122,11 @@ export default function Home() {
 
         <section className="py-20 lg:py-32 bg-gray-50 dark:bg-gray-900">
             <div className="container mx-auto px-4">
-                <h2 className="text-center text-4xl font-extrabold text-gray-900 dark:text-white">Inscrivez-vous à la newsletter</h2>
+                <h2 className="text-center text-4xl font-extrabold text-gray-900 dark:text-white">Inscrivez-vous à la
+                    newsletter</h2>
                 <p className="mt-4 text-center max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-300">
-                    Recevez les dernières actualités et les prochaines dates d'ateliers directement dans votre boîte e-mail.
+                    Recevez les dernières actualités et les prochaines dates d'ateliers directement dans votre boîte
+                    e-mail.
                 </p>
                 <div className="mt-12 max-w-lg mx-auto">
                     <form>
@@ -129,9 +137,11 @@ export default function Home() {
                             </label>
                             <label className="block">
                                 <span className="text-gray-700 dark:text-gray-300">Adresse e-mail</span>
-                                <Input className="mt-1 block w-full" placeholder="jean.dupont@example.com" type="email"/>
+                                <Input className="mt-1 block w-full" placeholder="jean.dupont@example.com"
+                                       type="email"/>
                             </label>
-                            <Button type="submit" className="w-full py-3 px-6 text-center text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm">
+                            <Button type="submit"
+                                    className="w-full py-3 px-6 text-center text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm">
                                 Souscrire
                             </Button>
                         </div>
