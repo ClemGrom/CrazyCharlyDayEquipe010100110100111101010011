@@ -2,6 +2,7 @@ import Link from "next/link";
 import {HomeIcon} from "lucide-react";
 import {createClient} from "@/app/utils/supabase/server";
 import {logout} from "@/app/auth/action";
+import Image from "next/image";
 
 export default async function NavbarPartial() {
     const supabase = createClient()
@@ -14,9 +15,9 @@ export default async function NavbarPartial() {
             <div className="container px-4 py-6 md:py-8">
                 <nav
                     className="flex justify-between items-center space-x-4 md:space-x-8 lg:space-x-12 xl:space-x-16">
-                    <a className="flex items-center gap-2 text-xl font-medium" href="/">
-                        <HomeIcon className="w-5 h-5"/>
-                        Home
+                    <a className="flex items-center gap-2 text-xl font-bold" href="/">
+                        <img src="https://asso-ars.fr/images/bac/labac.png" alt="Logo lbac" className={"w-10 h-10"} />
+                        CookingBooking
                     </a>
                     {data.user ? (
                         <form className="flex items-center space-x-4 justify-self-end">
@@ -41,7 +42,7 @@ export default async function NavbarPartial() {
                                 Se connecter
                             </a>
                             <a
-                                className="flex items-center px-2.5 py-1.5 text-sm font-medium rounded-md bg-blue-500 text-white hover:bg-blue-600"
+                                className="flex items-center px-2.5 py-1.5 text-sm font-medium rounded-md bg-black text-white hover:bg-gray-900 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out"
                                 href="/signup"
                             >
                                 S'inscrire

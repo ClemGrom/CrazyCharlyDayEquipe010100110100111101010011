@@ -64,11 +64,11 @@ export default function Home() {
             ateliers={ateliers}
             titleComponent={
                 <>
-                    <h1 className="text-4xl font-semibold text-black dark:text-white">
-                        La boîte à Pizza <br />
-                        <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
-                Association Accueil
-& Réinsertion Sociale
+                    <h1 className="text-xl font-semibold text-gray-600">
+                        Association Accueil
+                        & Réinsertion Sociale <br />
+                        <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none text-black">
+                La Boîte à Cuisine
               </span>
                     </h1>
                 </>
