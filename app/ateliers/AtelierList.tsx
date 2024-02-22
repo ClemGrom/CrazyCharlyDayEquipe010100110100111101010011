@@ -12,7 +12,7 @@ interface AtelierListProps {
     error?: string
 }
 
-const itemsPerPage = 9
+const itemsPerPage = 5
 
 export default function AtelierList({ateliers, isLoading, error}: AtelierListProps) {
     const [searchTerm, setSearchTerm] = useState('')
@@ -96,7 +96,7 @@ export default function AtelierList({ateliers, isLoading, error}: AtelierListPro
                                         className={`px-3 py-2 rounded-md ${
                                             currentPage === 1
                                                 ? 'bg-gray-200 dark:bg-gray-700 cursor-not-allowed'
-                                                : 'bg-white dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300'
+                                                : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300'
                                         }`}
                                         onClick={() => setCurrentPage(1)}
                                         disabled={currentPage === 1}
@@ -110,7 +110,7 @@ export default function AtelierList({ateliers, isLoading, error}: AtelierListPro
                                             className={`px-3 py-2 rounded-md ${
                                                 currentPage === page
                                                     ? ''
-                                                    : 'bg-white dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300'
+                                                    : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300'
                                             }`}
                                             onClick={() => setCurrentPage(page)}
                                         >
@@ -123,7 +123,7 @@ export default function AtelierList({ateliers, isLoading, error}: AtelierListPro
                                         className={`px-3 py-2 rounded-md ${
                                             currentPage === totalPages
                                                 ? 'bg-gray-200 dark:bg-gray-700 cursor-not-allowed'
-                                                : 'bg-white dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300'
+                                                : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300'
                                         }`}
                                         onClick={() => setCurrentPage(totalPages)}
                                         disabled={currentPage === totalPages}
